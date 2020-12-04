@@ -6,6 +6,31 @@
 
 const addition = (...numbers) => {
   // all your code
+  try {
+    if (numbers.length == 0) {
+      // console.log("invalid input");
+      throw new Error("Invalid Input");
+    } else if (numbers.length != 0) {
+      var add;
+      numbers.forEach((num) => {
+        if (typeof num !== "number") {
+          throw new Error("Invalid Input");
+        } else {
+          add = numbers.reduce((a = 0, num) => {
+            a = a + num;
+            return a;
+          });
+        }
+      });
+      return add;
+    }
+  } catch (err) {
+    throw err;
+  }
 };
+
+addition(10, 20, 30);
+// addition("a", "d");
+// addition();
 
 module.exports = addition;
